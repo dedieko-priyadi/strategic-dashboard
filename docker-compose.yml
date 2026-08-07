@@ -1,0 +1,15 @@
+services:
+  strategic:
+    build: .
+    container_name: strategic-dashboard
+    restart: unless-stopped
+    ports:
+      - "8542:8542"
+    volumes:
+      - /home/dedieko/collection-engine/data/charts.db:/app/charts.db:ro
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 172.16.21.0/24   # /24 (aturan wajib)
